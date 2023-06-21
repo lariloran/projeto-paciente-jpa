@@ -25,8 +25,8 @@ public class Medico implements Serializable {
 	@OneToMany (mappedBy = "medico"
 			, cascade =
 			{CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-			@JoinColumn(name="idConsulta")
-	private List<Consulta> consultas; 
+	@JoinColumn(name="idConsulta")
+	private List<Consulta> consultas;  
 
 	private static final long serialVersionUID = 1L;
 
@@ -71,7 +71,4 @@ public class Medico implements Serializable {
 		return "Medico [idMedico=" + idMedico + ", crm=" + crm + ", especialidade=" + especialidade + ", consultas="
 				+ consultas + "]";
 	}
-	
-	
-   
 }

@@ -25,14 +25,15 @@ public class Paciente extends Pessoa implements Serializable {
 	
     @Temporal(TemporalType.DATE)
 	private Date dataNascimento;
+    
     @ElementCollection
     @CollectionTable(name="paciente_emails")
-	private List<String> emails;
+	private List<String> emails; 
     
     @OneToMany (mappedBy = "paciente"
 			, cascade =
 			{CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-			@JoinColumn(name="idConsulta")
+	@JoinColumn(name="idConsulta")
 	private List<Consulta> consultas;
 
 	private static final long serialVersionUID = 1L;
@@ -86,6 +87,5 @@ public class Paciente extends Pessoa implements Serializable {
 		return "Paciente [convenio=" + convenio + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", emails="
 				+ emails + ", consultas=" + consultas + "]";
 	}
-	
-   
+
 }

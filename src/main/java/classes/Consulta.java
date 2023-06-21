@@ -23,7 +23,7 @@ public class Consulta implements Serializable {
     
     @ManyToOne
     @JoinColumn(name="idMedico")
-    private Medico medico;
+    private Medico medico; 
     
     @ManyToOne
     @JoinColumn(name="idPaciente")
@@ -77,6 +77,7 @@ public class Consulta implements Serializable {
 		return "Consulta [idConsulta=" + idConsulta + ", data=" + data + ", horario=" + horario + ", medico=" + medico
 				+ ", paciente=" + paciente + "]";
 	}
+
 
 
 

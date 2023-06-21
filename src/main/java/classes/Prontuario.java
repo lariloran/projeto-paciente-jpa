@@ -31,8 +31,6 @@ public class Prontuario implements Serializable {
 		super();
 	}   
 	
-
-
 	public Prontuario(Date data, String descricao, Paciente paciente, Situacao situacao) { 
 		super();
 		this.data = data;
@@ -41,73 +39,49 @@ public class Prontuario implements Serializable {
 		this.situacao = situacao;
 	}
 
-
-
 	public Long getIdProntuario() {
 		return idProntuario;
 	}
-
-
 
 	public void setIdProntuario(Long idProntuario) {
 		this.idProntuario = idProntuario;
 	}
 
-
-
 	public Date getData() {
 		return data;
 	}
-
-
 
 	public void setData(Date data) {
 		this.data = data;
 	}
 
-
-
 	public String getDescricao() {
 		return descricao;
 	}
-
-
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 
-
-
 	public Paciente getPaciente() {
 		return paciente;
 	}
-
-
 
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
 
-
-
 	public Situacao getSituacao() {
 		return situacao;
 	}
-
-
 
 	public void setSituacao(Situacao situacao) {
 		this.situacao = situacao;
 	}
 
-
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-
 
 	@Override
 	public String toString() {
@@ -115,6 +89,4 @@ public class Prontuario implements Serializable {
 				+ ", paciente=" + paciente + ", situacao=" + situacao + "]";
 	}
 
-
-   
 }

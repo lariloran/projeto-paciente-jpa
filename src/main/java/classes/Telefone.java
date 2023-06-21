@@ -31,23 +31,43 @@ public class Telefone implements Serializable {
 	}
 
 
-	public int getDdd() {
-		return this.ddd;
+	public Long getIdTelefone() {
+		return idTelefone;
 	}
+
+
+	public void setIdTelefone(Long idTelefone) {
+		this.idTelefone = idTelefone;
+	}
+
+
+	public int getDdd() {
+		return ddd;
+	}
+
 
 	public void setDdd(int ddd) {
 		this.ddd = ddd;
-	}   
-	public long getNumero() {
-		return this.numero;
 	}
+
+
+	public long getNumero() {
+		return numero;
+	}
+
 
 	public void setNumero(long numero) {
 		this.numero = numero;
 	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Telefone [idTelefone=" + idTelefone + ", ddd=" + ddd + ", numero=" + numero + "]";
 	}
-   
 }

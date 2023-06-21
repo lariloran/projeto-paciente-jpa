@@ -32,7 +32,7 @@ public class TestesMapeamentos {
 	          
 	        	List<Consulta> consultas = new ArrayList();
 	        	consultas.add(new Consulta(new Date(), new Date()));
-	        	consultas.add(new Consulta(new Date(), new Date()));
+	        	consultas.add(new Consulta(new Date(), new Date())); 
 	        	
 
 	        	List<Consulta> consultas2 = new ArrayList();
@@ -40,7 +40,9 @@ public class TestesMapeamentos {
 	        	consultas2.add(new Consulta(new Date(), new Date()));
 	        	
 	        	 Medico medico = new Medico("123", "Oftalmo");
-			        medico.setConsultas(consultas);
+			        medico.getConsultas().addAll(consultas);
+			        medico.getConsultas().addAll(consultas2);
+			        
 			        for (Consulta consulta : consultas) {
 						consulta.setMedico(medico);
 					}
