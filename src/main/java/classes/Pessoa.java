@@ -25,8 +25,8 @@ public class Pessoa implements Serializable {
 	private String endereco;
 	private static final long serialVersionUID = 1L;
 	
-	@ElementCollection
-    @CollectionTable(name="pessoa_telefone")
+	@OneToMany(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="idPessoa")
 	private List<Telefone> telefones;
 	
 	public Pessoa() {

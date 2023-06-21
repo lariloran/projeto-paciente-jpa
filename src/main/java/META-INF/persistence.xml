@@ -6,6 +6,7 @@
 		<class>classes.Paciente</class>
 		<class>classes.Pessoa</class>
 		<class>classes.Prontuario</class>
+		<class>classes.Telefone</class>
 	<properties>
 		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/trabjpa"/>
 		<property name="javax.persistence.jdbc.user" value="root"/>

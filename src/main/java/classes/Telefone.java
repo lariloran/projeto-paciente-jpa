@@ -20,8 +20,17 @@ public class Telefone implements Serializable {
 	private static final long serialVersionUID = 1L; 
 
 	public Telefone() {
-		super();
+		super(); 
 	}   
+	
+	
+	public Telefone(int ddd, long numero) {
+		super();
+		this.ddd = ddd;
+		this.numero = numero;
+	}
+
+
 	public int getDdd() {
 		return this.ddd;
 	}

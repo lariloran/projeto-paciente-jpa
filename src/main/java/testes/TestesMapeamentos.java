@@ -53,11 +53,28 @@ public class TestesMapeamentos {
 	        	emails.add("abc2@gmail");
 	        	
 	        	List<String> emails2 = new ArrayList();
-	        	emails.add("arererer@gmail");
-	        	emails.add("acvdccd@gmail");
+	        	emails2.add("arererer@gmail");
+	        	emails2.add("acvdccd@gmail");
+	        	
+	        	
+	        	List<Telefone> telefone = new ArrayList();
+	        	telefone.add(new Telefone(51,30225526));
+	        	telefone.add(new Telefone(51,25894178));
+	        	
+	        	
+	        	List<Telefone> telefone2 = new ArrayList();
+	        	telefone2.add(new Telefone(55,63958741));
+	        	telefone2.add(new Telefone(55,15424836));
 	        	
 		        Paciente paciente = new Paciente("Doctor", "043", new Date(), emails,consultas);
+		        paciente.setNome("Alberto Rodrigues");
+		        paciente.setEndereco("Rua Pereira de Souza 223");
+		        paciente.setTelefones(telefone);
+		        
 		        Paciente paciente2 = new Paciente("Unimed", "896", new Date(), emails2,consultas2);
+		        paciente2.setNome("Gabriely Rodrigues");
+		        paciente2.setEndereco("Rua Tenente Alpion de Souza 115");
+		        paciente2.setTelefones(telefone2);
 		        
 		        for (Consulta consulta : consultas) {
 					consulta.setPaciente(paciente);
@@ -70,7 +87,7 @@ public class TestesMapeamentos {
 	
 		        Prontuario prontuario = new Prontuario(new Date(),"Cirurgia Geral", paciente,Situacao.HOSPITALIZADO);
 
-		        Prontuario prontuario2 = new Prontuario(new Date(),"Apendicite", paciente2,Situacao.EM_OBSERVACAO);
+		        Prontuario prontuario2 = new Prontuario(new Date(),"Apendicite", paciente2,Situacao.NORMAL);
 		
 		        
 		        em.getTransaction().begin();
