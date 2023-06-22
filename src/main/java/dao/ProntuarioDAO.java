@@ -32,7 +32,6 @@ public class ProntuarioDAO {
 
 	public boolean atualizar(Prontuario entity) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			em.merge(entity);
 			em.getTransaction().commit();
@@ -47,7 +46,6 @@ public class ProntuarioDAO {
 
 	public boolean remover(long id) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			Prontuario entity = em.find(Prontuario.class, id);
 			em.remove(entity);
@@ -61,9 +59,8 @@ public class ProntuarioDAO {
 		} 
 	}
 
-	public Prontuario buscarID(int id) {
+	public Prontuario buscarID(long id) {
 		try {
-			em = JPAUtil.getEntityManager();
 			Prontuario entity = em.find(Prontuario.class, id);
 			return entity;
 		} catch (RuntimeException e) {
@@ -76,7 +73,6 @@ public class ProntuarioDAO {
 
 	public List<Prontuario> buscarTodos() {
 		try {
-			em = JPAUtil.getEntityManager();
 			TypedQuery<Prontuario> query = em.createQuery("SELECT obj FROM Prontuario obj", Prontuario.class);
 			List<Prontuario> Prontuarios = query.getResultList();
 			return Prontuarios;

@@ -12,12 +12,11 @@ public class PessoaDAO {
 
 	private EntityManager em;
 
-	public PessoaDAO() {
+	public PessoaDAO(EntityManager em) {
+		this.em = em;
 	}
-
 	public boolean salvar(Pessoa entity) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			em.persist(entity);
 			em.getTransaction().commit();
@@ -32,7 +31,6 @@ public class PessoaDAO {
 
 	public boolean atualizar(Pessoa entity) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			em.merge(entity);
 			em.getTransaction().commit();
@@ -47,7 +45,6 @@ public class PessoaDAO {
 
 	public boolean remover(long id) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			Pessoa entity = em.find(Pessoa.class, id);
 			em.remove(entity);
@@ -61,9 +58,8 @@ public class PessoaDAO {
 		} 
 	}
 
-	public Pessoa buscarID(int id) {
+	public Pessoa buscarID(long id) {
 		try {
-			em = JPAUtil.getEntityManager();
 			Pessoa entity = em.find(Pessoa.class, id);
 			return entity;
 		} catch (RuntimeException e) {
@@ -76,7 +72,6 @@ public class PessoaDAO {
 
 	public List<Pessoa> buscarTodos() {
 		try {
-			em = JPAUtil.getEntityManager();
 			TypedQuery<Pessoa> query = em.createQuery("SELECT obj FROM Pessoa obj", Pessoa.class);
 			List<Pessoa> pessoas = query.getResultList();
 			return pessoas;

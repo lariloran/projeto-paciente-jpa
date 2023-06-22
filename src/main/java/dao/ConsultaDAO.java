@@ -32,7 +32,6 @@ public class ConsultaDAO {
 
 	public boolean atualizar(Consulta entity) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			em.merge(entity);
 			em.getTransaction().commit();
@@ -47,7 +46,6 @@ public class ConsultaDAO {
 
 	public boolean remover(long id) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			Consulta entity = em.find(Consulta.class, id);
 			em.remove(entity);
@@ -61,9 +59,8 @@ public class ConsultaDAO {
 		} 
 	}
 
-	public Consulta buscarID(int id) {
+	public Consulta buscarID(long id) {
 		try {
-			em = JPAUtil.getEntityManager();
 			Consulta entity = em.find(Consulta.class, id);
 			return entity;
 		} catch (RuntimeException e) {
@@ -76,7 +73,6 @@ public class ConsultaDAO {
 
 	public List<Consulta> buscarTodos() {
 		try {
-			em = JPAUtil.getEntityManager();
 			TypedQuery<Consulta> query = em.createQuery("SELECT obj FROM Consulta obj", Consulta.class);
 			List<Consulta> Consultas = query.getResultList();
 			return Consultas;

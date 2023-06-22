@@ -70,4 +70,6 @@ public class Telefone implements Serializable {
 	public String toString() {
 		return "Telefone [idTelefone=" + idTelefone + ", ddd=" + ddd + ", numero=" + numero + "]";
 	}
+
+
 }

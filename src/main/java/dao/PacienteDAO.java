@@ -32,7 +32,6 @@ public class PacienteDAO {
 
 	public boolean atualizar(Paciente entity) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			em.merge(entity);
 			em.getTransaction().commit();
@@ -47,7 +46,6 @@ public class PacienteDAO {
 
 	public boolean remover(long id) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			Paciente entity = em.find(Paciente.class, id);
 			em.remove(entity);
@@ -61,9 +59,8 @@ public class PacienteDAO {
 		} 
 	}
 
-	public Paciente buscarID(int id) {
+	public Paciente buscarID(long id) {
 		try {
-			em = JPAUtil.getEntityManager();
 			Paciente entity = em.find(Paciente.class, id);
 			return entity;
 		} catch (RuntimeException e) {
@@ -76,7 +73,6 @@ public class PacienteDAO {
 
 	public List<Paciente> buscarTodos() {
 		try {
-			em = JPAUtil.getEntityManager();
 			TypedQuery<Paciente> query = em.createQuery("SELECT obj FROM Paciente obj", Paciente.class);
 			List<Paciente> Pacientes = query.getResultList();
 			return Pacientes;

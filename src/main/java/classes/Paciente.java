@@ -88,4 +88,5 @@ public class Paciente extends Pessoa implements Serializable {
 				+ emails + ", consultas=" + consultas + "]";
 	}
 
+
 }

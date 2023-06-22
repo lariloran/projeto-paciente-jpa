@@ -89,4 +89,6 @@ public class Prontuario implements Serializable {
 				+ ", paciente=" + paciente + ", situacao=" + situacao + "]";
 	}
 
+
+
 }

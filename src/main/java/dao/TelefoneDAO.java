@@ -31,7 +31,6 @@ public class TelefoneDAO {
 
 	public boolean atualizar(Telefone entity) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			em.merge(entity);
 			em.getTransaction().commit();
@@ -46,7 +45,6 @@ public class TelefoneDAO {
 
 	public boolean remover(long id) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			Telefone entity = em.find(Telefone.class, id);
 			em.remove(entity);
@@ -60,9 +58,8 @@ public class TelefoneDAO {
 		} 
 	}
 
-	public Telefone buscarID(int id) {
+	public Telefone buscarID(long id) {
 		try {
-			em = JPAUtil.getEntityManager();
 			Telefone entity = em.find(Telefone.class, id);
 			return entity;
 		} catch (RuntimeException e) {
@@ -75,7 +72,6 @@ public class TelefoneDAO {
 
 	public List<Telefone> buscarTodos() {
 		try {
-			em = JPAUtil.getEntityManager();
 			TypedQuery<Telefone> query = em.createQuery("SELECT obj FROM Telefone obj", Telefone.class);
 			List<Telefone> Telefones = query.getResultList();
 			return Telefones;

@@ -31,7 +31,6 @@ public class MedicoDAO {
 
 	public boolean atualizar(Medico entity) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			em.merge(entity);
 			em.getTransaction().commit();
@@ -46,7 +45,6 @@ public class MedicoDAO {
 
 	public boolean remover(long id) {
 		try {
-			em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
 			Medico entity = em.find(Medico.class, id);
 			em.remove(entity);
@@ -60,9 +58,8 @@ public class MedicoDAO {
 		} 
 	}
 
-	public Medico buscarID(int id) {
+	public Medico buscarID(long id) {
 		try {
-			em = JPAUtil.getEntityManager();
 			Medico entity = em.find(Medico.class, id);
 			return entity;
 		} catch (RuntimeException e) {
@@ -75,7 +72,6 @@ public class MedicoDAO {
 
 	public List<Medico> buscarTodos() {
 		try {
-			em = JPAUtil.getEntityManager();
 			TypedQuery<Medico> query = em.createQuery("SELECT obj FROM Medico obj", Medico.class);
 			List<Medico> Medicos = query.getResultList();
 			return Medicos;
