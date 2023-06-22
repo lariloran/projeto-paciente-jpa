@@ -21,11 +21,11 @@ public class Consulta implements Serializable {
     @Temporal(TemporalType.TIME)
 	private Date horario;
     
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="idMedico")
     private Medico medico; 
     
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="idPaciente")
     private Paciente paciente;
     
