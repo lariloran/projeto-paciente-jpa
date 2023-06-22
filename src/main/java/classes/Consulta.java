@@ -21,11 +21,11 @@ public class Consulta implements Serializable {
     @Temporal(TemporalType.TIME)
 	private Date horario;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="idMedico")
     private Medico medico; 
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="idPaciente")
     private Paciente paciente;
     
@@ -74,8 +74,7 @@ public class Consulta implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Consulta [idConsulta=" + idConsulta + ", data=" + data + ", horario=" + horario + ", medico=" + medico
-				+ ", paciente=" + paciente + "]";
+	    return "Consulta [idConsulta=" + idConsulta + ", data=" + data + ", horario=" + horario + "]";
 	}
 
 

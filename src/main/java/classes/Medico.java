@@ -68,7 +68,7 @@ public class Medico implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Medico [idMedico=" + idMedico + ", crm=" + crm + ", especialidade=" + especialidade + ", consultas="
-				+ consultas + "]";
+	    return "Medico [idMedico=" + idMedico + ", crm=" + crm + ", especialidade=" + especialidade + "]";
 	}
+
 }
