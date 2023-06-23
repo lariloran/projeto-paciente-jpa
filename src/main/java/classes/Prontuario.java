@@ -8,6 +8,10 @@ import javax.persistence.*;
 /**
  * Entity implementation class for Entity: Prontuario
  *
+ *Justificativa: utilizei o STRING porque, além de me possibilitar trocar a ordem dos enum 
+ *e não quebrar a aplicação, ficará muito melhor a visibilidade na base de dados.
+ *Utilizando o ORDINAL constará apenas o ID e como nesse sistema não temos uma tabela que
+ *armazene esses enums torna-se complicado para o usuario identificar qual a sua situação.
  */
 @Entity
 

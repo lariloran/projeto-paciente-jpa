@@ -1,5 +1,4 @@
 package classes;
-
 public enum Situacao {
 	NORMAL(1, "NORMAL"),
 	EM_OBSERVACAO(2, "EM OBSERVAÇÃO"),

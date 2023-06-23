@@ -9,7 +9,12 @@ import javax.persistence.*;
 
 /**
  * Entity implementation class for Entity: Pessoa
- *
+ * 
+ * Justificativa: Utilizei o JOINED porque acredito que a visualização da minha hierarquia de
+ * classes fica mais organizada, evita a possibilidade de deixar campos nulos, como no SINGLE_TABLE.
+ * Me possibilita, também, que num futuro caso eu tenha outras Entidades que herdem de pessoa
+ * a organização a nivel de banco ficará muito mais clara do que se estivessem
+ * todos numa mesma tabela e evitará duplicação de dados.
  */
 @Entity
 @Inheritance (strategy = InheritanceType.JOINED)

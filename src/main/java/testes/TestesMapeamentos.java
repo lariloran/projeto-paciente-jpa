@@ -15,14 +15,12 @@ public class TestesMapeamentos {
 	
     public static void main(String[] args) {
     	  EntityManager em = JPAUtil.getEntityManager();
-     	 
-    
-          
+
         try {               
-             //CriaObjetos(em);
+             //CriaObjetos(em);//Após rodar uma vez a persistencia comente 
+        	                  //para criar mais registros iguais
         	
-             //Descomento dentro do método abaixo para ir executando as açoes
-        	//TestaOperacoesDao(em);
+           TestaOperacoesDao(em);        	
 
         } catch (NullPointerException e) {
             System.err.println("Ocorreu um NullPointerException: " + e.getMessage());
@@ -34,7 +32,7 @@ public class TestesMapeamentos {
             System.err.println("Ocorreu uma exceção genérica: " + e.getMessage());
         }
     }
-    
+     
     private static String formatarData(Date data) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         return sdf.format(data);
@@ -49,7 +47,7 @@ public class TestesMapeamentos {
     	ListarTodos(em);
 		BuscarPorId(em); 
         BuscaEspecializada(em);
-		//Atualizar(em);
+		Atualizar(em);
         //Remover(em);
     }
     
@@ -129,7 +127,7 @@ public class TestesMapeamentos {
     private static List<Consulta> CriaConsultas() {
         List<Consulta> consultas = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             consultas.add(new Consulta(new Date(), new Date()));
         }
         
@@ -138,7 +136,7 @@ public class TestesMapeamentos {
     private static List<Medico> CriaMedicos() {
     	List<Medico> medicos = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             String crm = "CRM" + (i + 1); 
             String especialidade = "Especialidade" + (i + 1); 
 
@@ -160,7 +158,7 @@ public class TestesMapeamentos {
     private static List<Telefone> CriaTelefones(){
     	List<Telefone> telefones = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             Telefone telefone = new Telefone();
             telefone.setDdd(51);
             telefone.setNumero(30225526 + i);
@@ -441,7 +439,8 @@ public class TestesMapeamentos {
   	    Paciente paciente = new Paciente();
   	    paciente.setNome("Pedro Maria da Sila");
   	    paciente.setIdPessoa(1L);
-  	    paciente.setCpf("043840520-89");
+  	    paciente.setTelefones(pacienteDao.buscarID(1).getTelefones());
+  	    paciente.setCpf(pacienteDao.buscarID(1).getCpf());
   	    paciente.setDataNascimento(new Date());
   	    paciente.setConvenio("IPE");
         paciente.setEndereco("Rua Alice Datafiles, 451 - Bairro Navegantes, POA/RS");
@@ -485,7 +484,8 @@ public class TestesMapeamentos {
         System.out.println("\n\n -- Buscar pessoa por nome completo -- \n\n");
         System.out.println("Pessoa: Alberto Rodrigues");
         Pessoa pessoa = pessoaDao.buscarNome("Alberto Rodrigues");
-        System.out.println("Endereço: " + pessoa.getEndereco() + "\n");
+        if(pessoa != null)
+        	System.out.println("Endereço: " + pessoa.getEndereco() + "\n");
         
         System.out.println("\n\n -- Buscar prontuários por Situação -- \n\n");
         System.out.println("Situação: HOSPITALIZADO\n");

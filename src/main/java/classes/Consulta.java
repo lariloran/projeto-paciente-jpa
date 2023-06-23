@@ -7,6 +7,10 @@ import javax.persistence.*;
 /**
  * Entity implementation class for Entity: Consulta
  *
+ *Justificativa: Levando em consideração que os meus dois tipos TEMPORAL estão atendendo propriedades
+ *do tipo DATE e não calendar apenas utilizei o TEMPORAL específico para os dados que eu precisava, por exemplo
+ *em data quero apenas a data, logo utilizo o DATE e em horario apenas TIME, por isso não utilizo
+ *o TIMESTAMP porque não tenho uma propriedade que armazene os dois.
  */
 @Entity
 
@@ -21,11 +25,11 @@ public class Consulta implements Serializable {
     @Temporal(TemporalType.TIME)
 	private Date horario;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="idMedico")
     private Medico medico; 
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="idPaciente")
     private Paciente paciente;
     

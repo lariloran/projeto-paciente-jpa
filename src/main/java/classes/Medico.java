@@ -24,7 +24,7 @@ public class Medico implements Serializable {
 	
 	@OneToMany (mappedBy = "medico"
 			, cascade =
-			{CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+			{CascadeType.PERSIST})
 	@JoinColumn(name="idConsulta")
 	private List<Consulta> consultas;  
 
