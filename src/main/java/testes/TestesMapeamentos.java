@@ -44,11 +44,11 @@ public class TestesMapeamentos {
     }
     
     private static void TestaOperacoesDao(EntityManager em) {      
-    	ListarTodos(em);
-		BuscarPorId(em); 
-        BuscaEspecializada(em);
-		Atualizar(em);
-        //Remover(em);
+    	//ListarTodos(em);
+		//BuscarPorId(em); 
+        //BuscaEspecializada(em);
+		//Atualizar(em);
+        Remover(em);
     }
     
     private static void CriaObjetos(EntityManager em) {          
@@ -149,7 +149,7 @@ public class TestesMapeamentos {
     private static List<String> CriaEmails(){
     	 List<String> emails = new ArrayList<>();
 
-         for (int i = 0; i < 10; i++) {
+         for (int i = 0; i < 5; i++) {
              String email = "abc" + (i + 1) + "@gmail.com";
              emails.add(email);
          }
@@ -440,13 +440,14 @@ public class TestesMapeamentos {
   	    paciente.setNome("Pedro Maria da Sila");
   	    paciente.setIdPessoa(1L);
   	    paciente.setTelefones(pacienteDao.buscarID(1).getTelefones());
+  	    paciente.setEmails(pacienteDao.buscarID(1).getEmails());
   	    paciente.setCpf(pacienteDao.buscarID(1).getCpf());
   	    paciente.setDataNascimento(new Date());
   	    paciente.setConvenio("IPE");
         paciente.setEndereco("Rua Alice Datafiles, 451 - Bairro Navegantes, POA/RS");
   	
   	    if(pacienteDao.atualizar(paciente))
-  	        System.out.println("Paciente 2 foi atualizado com sucesso!");
+  	        System.out.println("Paciente 1 foi atualizado com sucesso!");
 
     }
     
